@@ -1,0 +1,20 @@
+spring:  
+  cloud:
+    gateway:
+      routes:
+        - id: r1
+          uri: http://127.0.0.1:8081/employee
+          predicates:
+            - Path=/employee
+        - id: r2
+          uri: http://127.0.0.1:8081/employee/**
+          predicates:
+            - Path=/employee/**
+        - id: r3
+          uri: http://127.0.0.1:8082/department
+          predicates:
+            - Path=/department
+        - id: r4
+          uri: http://127.0.0.1:8082/employee/**
+          predicates:
+            - Path=/department/**
